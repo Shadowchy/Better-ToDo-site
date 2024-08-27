@@ -1,0 +1,180 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.container {
+    width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #8FF7A7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #00884d;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-actions a {
+    margin-left: 10px;
+    color: #1d6139;
+    font-size: 1.2rem;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #AD343E;
+}
+
+.logout-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #AD343E;
+    text-decoration: none;
+}
+
+.theme-switcher {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+.theme-switcher a {
+    margin: 0 10px;
+    color: inherit;
+    font-size: 1.5rem;
+}
+
+body.light {
+    --background-color: #ffffff;
+    --text-color: #000000;
+}
+
+body.dark {
+    --background-color: #232C33;
+    --text-color: #FAA916;
+}
+
+body.light li {
+    background-color: #bbdef0;
+}
+
+body.dark li {
+    background-color: #232C33;;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Remove unwanted lines next to icons */
+.task-actions a {
+    display: inline-block;
+    margin: 0 5px;
+    text-decoration: none; /* Remove underline if it's appearing */
+    color: #D36135;
+    font-size: 1.2rem;
+}
+
+li {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    list-style-type: none; /* Ensure no bullets */
+}
+
+/* Ensure theme switcher buttons appear on all pages */
+.theme-switcher {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000; /* Ensure it's always on top */
+}

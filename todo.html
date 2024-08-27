@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}To-Do{% endblock %}
+{% block content %}
+    <h2>Your To-Do List</h2>
+    <form method="POST">
+        <input type="text" name="task" placeholder="Enter a new task" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for task in tasks %}
+            <li class="{{ 'completed' if task.complete else '' }}">
+                <span>{{ task.task }}</span>
+                <div class="task-actions">
+                    <a href="{{ url_for('complete', task_id=task.id) }}">
+                        <i class="fa-solid fa-check"></i>
+                    </a>
+                    <a href="#" class="edit-task" data-task-id="{{ task.id }}" data-task="{{ task.task }}">
+                        <i class="fa-solid fa-pen"></i>
+                    </a>
+                    <a href="{{ url_for('delete', task_id=task.id) }}">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    <div class="theme-switcher">
+        <a href="#" data-theme="light">
+            <i class="fa-regular fa-sun"></i>
+        </a>
+        <a href="#" data-theme="dark">
+            <i class="fa-regular fa-moon"></i>
+        </a>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Task</h2>
+            <form id="editTaskForm" method="POST">
+                <input type="hidden" name="task_id" id="editTaskId">
+                <input type="text" name="task" id="editTaskInput" required>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
