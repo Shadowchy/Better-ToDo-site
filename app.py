@@ -107,11 +107,6 @@ def switch_theme(theme_name):
         db.session.commit()
     return redirect(url_for('todo'))
 
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-    app.run(debug=True)
-
 @app.route('/edit', methods=['POST'])
 def edit_task():
     if 'user_id' not in session:
@@ -126,3 +121,8 @@ def edit_task():
         db.session.commit()
 
     return redirect(url_for('todo'))
+
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True)
