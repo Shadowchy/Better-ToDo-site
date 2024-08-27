@@ -50,4 +50,22 @@ document.addEventListener('DOMContentLoaded', function () {
             editModal.style.display = 'none';
         }
     });
+
+    // Handle form submission via AJAX
+    editForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(editForm);
+        
+        fetch('/edit', {
+            method: 'POST',
+            body: formData
+        }).then(response => {
+            if (response.ok) {
+                editModal.style.display = 'none';
+                location.reload(); // Reload the page to reflect changes
+            } else {
+                alert('Failed to update task');
+            }
+        });
+    });
 });
